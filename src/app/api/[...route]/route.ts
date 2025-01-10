@@ -1,7 +1,7 @@
 import 'server-only'
 import {  Hono } from "hono";
 import { handle } from "hono/vercel";
-import auth from "@/features/auth/server/route";
+import auth from "@/features/user/server/route";
  
 const app = new Hono().basePath("/api");
 app.use('*', async (c, next) => {
