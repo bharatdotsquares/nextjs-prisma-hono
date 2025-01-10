@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model blogs {
+  id           Int      @id @default(autoincrement())
+  Title        String?  @db.VarChar(255)
+  BlogType     String?  @db.VarChar(255)
+  Description  String?  @db.VarChar(255)
+  IsActive     Boolean?
+  IsDeleted    Boolean?
+  Created      Boolean?
+  Updated      Boolean?
+  FileUploaded String?  @db.VarChar(255)
+  createdAt    DateTime? @db.DateTime(0) 
+  updatedAt    DateTime? @db.DateTime(0)
+}
+
+model sequelizemeta {
+  name String @id @unique(map: "name") @db.VarChar(255)
+}
