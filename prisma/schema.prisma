@@ -7,6 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+model users {
+  id           Int      @id @default(autoincrement())
+  name        String?  @db.VarChar(255)
+  email        String?  @unique @db.VarChar(255)
+  password     String?  @db.VarChar(255)
+  isActive     Boolean?
+  isDeleted    Boolean?
+  createdAt    DateTime? @db.DateTime(0)
+}
 model blogs {
   id           Int      @id @default(autoincrement())
   Title        String?  @db.VarChar(255)
